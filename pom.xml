@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>studio.programkode</groupId>
-    <artifactId>jdgk</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>jgdk</artifactId>
+    <version>0.1.0</version>
 
     <name>Java Game Development Kit</name>
     <description>Simple Java Game Development Kit, allowing you to create simple prototypes and games.</description>
@@ -29,9 +29,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/programkode/JavaGameDevelopmentKit.git</connection>
-        <developerConnection>scm:git:ssh://github.com:programkode/JavaGameDevelopmentKit.git</developerConnection>
-        <url>https://github.com/programkode/JavaGameDevelopmentKit/tree/main</url>
+        <connection>scm:git:git://github.com/pkstudio/JavaGameDevelopmentKit.git</connection>
+        <developerConnection>scm:git:ssh://github.com:pkstudio/JavaGameDevelopmentKit.git</developerConnection>
+        <url>https://github.com/pkstudio/JavaGameDevelopmentKit/tree/main</url>
     </scm>
 
     <properties>
@@ -76,11 +76,6 @@
                                 <phase>package</phase>
                                 <goals>
                                     <goal>jar</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <goals>
-                                    <goal>test-jar</goal>
                                 </goals>
                             </execution>
                             <execution>
