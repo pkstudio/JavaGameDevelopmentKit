@@ -6,7 +6,7 @@
 
     <groupId>studio.programkode</groupId>
     <artifactId>jgdk</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 
     <name>Java Game Development Kit</name>
     <description>Simple Java Game Development Kit, allowing you to create simple prototypes and games.</description>
