@@ -234,6 +234,8 @@ public class API implements
             graphics.setColor(this.getColor());
 
             if (this.flagFill) {
+                graphics.setColor(this.getFillColor());
+
                 graphics.fillRect(
                         (int)(x - (width*transform[0])),
                         (int)(y - (height*transform[1])),
