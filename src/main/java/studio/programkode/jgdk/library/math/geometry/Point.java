@@ -8,6 +8,10 @@ public class Point extends java.awt.Point implements Movable
         super(0, 0);
     }
 
+    public Point(double x, double y) {
+        super((int) x, (int) y);
+    }
+
     public Point(int x, int y) {
         super(x, y);
     }

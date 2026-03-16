@@ -13,6 +13,10 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
 
@@ -361,6 +365,57 @@ public class API implements
     public void drawLine(int x1, int y1, int x2, int y2) {
         this.graphics.drawLine(x1, y1, x2, y2);
     }
+
+    public void drawLine(Point A, Point B) {
+        this.graphics.drawLine(A.x, A.y, B.x, B.y);
+    }
+
+    public void drawLine(Point... points) {
+        for (int i = 0; i < points.length - 1; i ++) {
+            this.drawLine(points[i], points[i + 1]);
+        }
+    }
+
+    public void drawLine(List<Point> points) {
+        for (int i = 0; i < points.size() - 1; i ++) {
+            this.drawLine(points.get(i), points.get(i + 1));
+        }
+    }
+
+    public void drawLines(Point... points) {
+        this.drawLines(List.of(points));
+    }
+
+    public void drawLines(List<Point> points) {
+        Iterator<Point> it = points.stream().iterator();
+        Point[] line = new Point[2];
+
+        AtomicBoolean toggle = new AtomicBoolean(false);
+
+        if (it.hasNext()) {
+            it.forEachRemaining(point -> {
+                line[toggle.get() ? 0 : 1] = point;
+
+                if (toggle.get()) {
+                    this.drawLine(line[0], line[1]);
+                }
+
+                toggle.set(!toggle.get());
+            });
+        }
+    }
+
+
+    //### Bézier curves (De Casteljau, arbitrary degree)
+    public void drawCurve(int resolution, Point... points) {
+        Line.iterateLine(resolution, List.of(points)).ifPresent(this::drawLine);
+    }
+
+    public void drawCurve(int resolution, List<Point> points)
+    {
+        Line.iterateLine(resolution, points).ifPresent(this::drawLine);
+    }
+
 
 
     //## Text
